@@ -8,9 +8,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("Content Approval")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Hostworks")]
+[assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("Content Approval")]
-[assembly: AssemblyCopyright("Copyright © Hostworks 2008")]
+[assembly: AssemblyCopyright("Copyright © 2008")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
