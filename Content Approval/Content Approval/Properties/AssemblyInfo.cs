@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Content Approval")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("SharePoint Mass Content Approval")]
+[assembly: AssemblyDescription("MASS enable or disable Content Approval or Versioning on a document Library")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Content Approval")]
+[assembly: AssemblyCompany("Daniel Brown")]
+[assembly: AssemblyProduct("SharePoint Mass Content Approval")]
 [assembly: AssemblyCopyright("Copyright © 2008")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
