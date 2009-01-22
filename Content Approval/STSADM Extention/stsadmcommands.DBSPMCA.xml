@@ -1,0 +1,42 @@
+﻿<commands>
+
+  <!-- stsadm -o enableversioning -->
+  <command
+      name="enableversioning"
+      class="DanielBrown.SharePoint.Tools.CLI.SPCMA.STSADM.SPMCACommand, SPMCASTSADM, 
+        Version=1.0.0.0, 
+        Culture=neutral, 
+        PublicKeyToken=75dc8154fc2f2162"/>
+
+  <!-- stsadm -o disableversioning -->
+  <command
+        name="disableversioning"
+        class="DanielBrown.SharePoint.Tools.CLI.SPCMA.STSADM.SPMCACommand, SPMCASTSADM, 
+        Version=1.0.0.0, 
+        Culture=neutral, 
+        PublicKeyToken=75dc8154fc2f2162"/>
+
+  <!-- stsadm -o enablecontentapproval -->
+  <command
+        name="enablecontentapproval"
+        class="DanielBrown.SharePoint.Tools.CLI.SPCMA.STSADM.SPMCACommand, SPMCASTSADM, 
+        Version=1.0.0.0, 
+        Culture=neutral, 
+        PublicKeyToken=75dc8154fc2f2162"/>
+
+  <!-- stsadm -o disablecontentapproval -->
+  <command
+        name="disablecontentapproval"
+        class="DanielBrown.SharePoint.Tools.CLI.SPCMA.STSADM.SPMCACommand, SPMCASTSADM, 
+        Version=1.0.0.0, 
+        Culture=neutral, 
+        PublicKeyToken=75dc8154fc2f2162"/>
+
+  <command
+        name="spmcahelp"
+        class="DanielBrown.SharePoint.Tools.CLI.SPCMA.STSADM.SPMCACommand, SPMCASTSADM, 
+        Version=1.0.0.0, 
+        Culture=neutral, 
+        PublicKeyToken=75dc8154fc2f2162"/>
+
+</commands>
