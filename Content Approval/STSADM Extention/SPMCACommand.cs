@@ -191,9 +191,12 @@ namespace DanielBrown.SharePoint.Tools.CLI.SPCMA.STSADM
                         if (IsRecursive) // Check if recurve was defined
                         {
                             // Loop though each sub-site and handle versioning & content approval settings
-                            foreach (SPWeb subweb in rootweb.Webs)
+                            for (int i = 0; i <= rootweb.Webs.Count; i++)
                             {
-                                this.HandleDocumentLibrary(subweb, ContentApproval, Versioning);
+                                using (SPWeb subweb = rootweb.Webs[i])
+                                {
+                                    HandleDocumentLibrary(subweb, ContentApproval, Versioning);
+                                }
                             }
                         }
 
