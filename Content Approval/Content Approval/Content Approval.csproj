@@ -99,4 +99,7 @@
   <Target Name="AfterBuild">
   </Target>
   -->
+  <PropertyGroup>
+    <PostBuildEvent>"C:\SharePoint Dispose Check\SPDisposeCheck.exe" "$(TargetPath)"</PostBuildEvent>
+  </PropertyGroup>
 </Project>
