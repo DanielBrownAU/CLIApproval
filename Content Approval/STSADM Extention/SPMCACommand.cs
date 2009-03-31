@@ -167,40 +167,50 @@ namespace DanielBrown.SharePoint.Tools.CLI.SPCMA.STSADM
                 IsRecursive = true;
             }
 
-            SPSite rootsite = null;
+            SPSite rootsite = default(SPSite);
             SPWeb rootweb = null;
 
             try
             {
-                // Open Site
-                using (rootsite = new SPSite(requestUrl))
+                Uri rootweburi = new Uri(requestUrl);
+
+                if (SPSite.Exists(rootweburi)) // Check if Site is there
                 {
-                    using (rootweb = rootsite.OpenWeb())
+                    // Open Site
+                    using (rootsite = new SPSite(requestUrl))
                     {
-                        // Allow unsafe updates
-                        rootweb.AllowUnsafeUpdates = true;
-                        rootweb.Update();
-
-                        // Process settings of the document libraries
-                        this.HandleDocumentLibrary(rootweb, ContentApproval, Versioning);
-
-                        // disable unsafe updates
-                        rootweb.AllowUnsafeUpdates = false;
-                        rootweb.Update();
-
-                        if (IsRecursive) // Check if recurve was defined
+                        using (rootweb = rootsite.OpenWeb())
                         {
-                            // Loop though each sub-site and handle versioning & content approval settings
-                            for (int i = 0; i <= rootweb.Webs.Count; i++)
+                            // Allow unsafe updates
+                            rootweb.AllowUnsafeUpdates = true;
+                            rootweb.Update();
+
+                            // Process settings of the document libraries
+                            this.HandleDocumentLibrary(rootweb, ContentApproval, Versioning);
+
+                            // disable unsafe updates
+                            rootweb.AllowUnsafeUpdates = false;
+                            rootweb.Update();
+
+                            if (IsRecursive) // Check if recurve was defined
                             {
-                                using (SPWeb subweb = rootweb.Webs[i])
+                                // Loop though each sub-site and handle versioning & content approval settings
+                                for (int i = 0; i <= rootweb.Webs.Count; i++)
                                 {
-                                    HandleDocumentLibrary(subweb, ContentApproval, Versioning);
+                                    using (SPWeb subweb = rootweb.Webs[i])
+                                    {
+                                        HandleDocumentLibrary(subweb, ContentApproval, Versioning);
+                                    }
                                 }
                             }
-                        }
 
+                        }
                     }
+                }
+                else
+                {
+
+                    Console.WriteLine(string.Format("Web Application at {0} was not found, please check the \"URL\" argument and try again.", requestUrl));
                 }
             }
             catch (SPException spex)
